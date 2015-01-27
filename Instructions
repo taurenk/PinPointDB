@@ -1,0 +1,25 @@
+/** Instructions **/
+
+sudo apt-get update
+sudo apt-get upgrade
+
+/** Install PostgreSQL **/
+sudo apt-get install postgresql
+
+-- create user
+sudo -u postgres psql postgres
+\password postgres
+# crtl+d to exit
+
+-- create db
+sudo -u postgres createdb pinpoint
+
+-- TODO create service account
+
+-- install postGIS package
+sudo apt-get install postgresql-9.3-postgis-9.2
+sudo -i postgres psql postgres
+CREATE EXTENSION postgis;
+
+-- install metaphone package
+CREATE EXTENSION fuzzystrmatch;

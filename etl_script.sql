@@ -14,12 +14,12 @@ ALTER TABLE addrfeat
 	ADD rcity VARCHAR(100) NULL;
 
 UPDATE addrfeat
-	SET lcity = place
+	SET lcity = UPPER(place)
 	FROM place
 	WHERE addrfeat.zipl = place.zip
 
 UPDATE addrfeat
-	SET rcity = place
+	SET rcity = UPPER(place)
 	FROM place
 	WHERE addrfeat.zipr = place.zip	
 
@@ -32,10 +32,10 @@ ALTER TABLE addrfeat
 	
 /** Update Street Data **/
 UPDATE addrfeat
-	SET name = feature.name, 		
-		predirabrv = feature.predirabrv,		
-		pretypabrv = feature.pretypabrv,	
-		suftypabrv = feature.suftypabrv	
+	SET name 		= UPPER(feature.name), 		
+		predirabrv = UPPER(feature.predirabrv),		
+		pretypabrv = UPPER(feature.pretypabrv),	
+		suftypabrv = UPPER(feature.suftypabrv)	
 	FROM feature
 	WHERE addrfeat.fullname = feature.fullname
 
