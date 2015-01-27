@@ -16,7 +16,7 @@ crtl+d to exit
 sudo -u postgres createdb pinpoint
 
 ### install postGIS package
-sudo -i postgres psql postgres
+sudo -u postgres psql postgres
 CREATE EXTENSION postgis;
 
 ### install metaphone package
@@ -28,11 +28,10 @@ CHANGE: host    all         all         127.0.0.1/32          peer
 TO: host    all         all         127.0.0.1/32          trust 
 
 #### Allow pgadmin access: postgresql.cof
-/etc/postgresql/8.4/main/postgresql.conf:
-	listen_addresses = '*'
+/etc/postgresql/9.3/main/postgresql.conf: listen_addresses = '*'
 
 ### Allow pgadmin access: pghba.cof
-/etc/postgresql/8.4/main/pg_hba.conf:
+/etc/postgresql/9.3/main/pg_hba.conf:
 ADD line to ipv6: host all all ip/24 md5
 
 ### Run ETL Script
