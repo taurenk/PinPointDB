@@ -30,7 +30,7 @@ TO: host    all         all         127.0.0.1/32          trust
 #### Allow pgadmin access: postgresql.cof
 /etc/postgresql/9.3/main/postgresql.conf: listen_addresses = '*'
 
-### Allow pgadmin access: pghba.cof
+### Allow pgadmin access: pghba.conf
 /etc/postgresql/9.3/main/pg_hba.conf:
 ADD line to ipv6: host all all ip/24 md5
 
